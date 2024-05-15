@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z cp)
+plugins=(git z cp zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,3 +102,11 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.zsh_alias
 source ~/.zsh_profile
+
+# .zshrc
+#fpath+=($HOME/.zsh/pure)
+
+# .zshrc
+#autoload -U promptinit; promptinit
+#prompt pure
+
