@@ -1,0 +1,9 @@
+# alias for zsh
+#
+
+alias cls=clear
+alias vim=nvim
+
+alias ll="eza -l -g --icons"
+alias lla="ll -a"
+
