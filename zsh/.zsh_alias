@@ -4,10 +4,23 @@
 alias cls=clear
 alias vim=nvim
 
+alias ls="eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias ll="eza -l -g --icons"
 alias lla="ll -a"
 
+alias cd="z"
+
 # alias for python venv
-alias venv="if [ -e ./.venv/bin/activate ]; then source ./.venv/bin/activate; else python3.8 -m venv .venv && source ./.venv/bin/activate; fi"
-alias venv3.7="if [ -e ./.venv/bin/activate ]; then source ./.venv/bin/activate; else python3.7 -m venv .venv && source ./.venv/bin/activate; fi"
+alias venv="if [ -e ./.venv/bin/activate ]; then source ./.venv/bin/activate; else python3 -m venv .venv && source ./.venv/bin/activate; fi"
+alias venv3.10="if [ -e ./.venv/bin/activate ]; then source ./.venv/bin/activate; else python3.10 -m venv .venv && source ./.venv/bin/activate; fi"
+alias venv3.9="if [ -e ./.venv/bin/activate ]; then source ./.venv/bin/activate; else python3.9 -m venv .venv && source ./.venv/bin/activate; fi"
+alias base="if [ -e ~/Python_env/base/.venv/bin/activate ]; then source ~/Python_env/base/.venv/bin/activate; else python3 -m venv ~/Python_env/base/.venv/ && source ~/Python_env/base/.venv/bin/activate; fi"
+
+alias reload-zsh="source ~/.zshrc"
+alias edit-zsh="nvim ~/.zshrc"
+
+alias gpl="git pull"
+alias gps="git push"
+
+alias ide="~/.scripts/ide"
 
