@@ -1,5 +1,10 @@
 export LANG=en_US.UTF-8
 
+
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -7,14 +12,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git cp)
+plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
 source ~/.zsh_alias
 source ~/.zprofile
 source ~/.env
@@ -35,6 +36,7 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -109,8 +111,6 @@ eval $(thefuck --alias fk)
 eval "$(zoxide init zsh)"
 
 # dxpy
-
-eval "$(register-python-argcomplete dx|sed 's/-o default//')"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -118,4 +118,3 @@ eval "$(pyenv virtualenv-init -)"
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
 
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
