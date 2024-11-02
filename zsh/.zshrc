@@ -14,7 +14,8 @@ fi
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git)
+plugins=(git )
+source ~/plugins/git/git.plugin.zsh
 
 source ~/.zsh_alias
 source ~/.zprofile
@@ -118,3 +119,10 @@ eval "$(pyenv virtualenv-init -)"
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+TOKEN=$(aws ecr get-authorization-token --output text --query 'authorizationData[].authorizationToken')
