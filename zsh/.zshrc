@@ -99,9 +99,6 @@ _fzf_comprun() {
   esac
 }
 
-# ----- Bat (better cat) -----
-
-export BAT_THEME=tokyonight_night
 
 # thefuck alias
 eval $(thefuck --alias)
