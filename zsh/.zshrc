@@ -15,6 +15,7 @@ fi
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(git )
+
 source ~/plugins/git/git.plugin.zsh
 
 source ~/.zsh_alias
@@ -26,9 +27,9 @@ source ~/.env
 
 # history setup
 HISTFILE=$HOME/.zhistory
-SAVEHIST=1000
-HISTSIZE=999
-setopt share_history 
+SAVEHIST=2000
+HISTSIZE=1999
+setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
@@ -37,7 +38,7 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme 
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -125,4 +126,27 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-TOKEN=$(aws ecr get-authorization-token --output text --query 'authorizationData[].authorizationToken')
+# TOKEN=$(aws ecr get-authorization-token --output text --query 'authorizationData[].authorizationToken')
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+
+export PATH=~/.local/bin:$PATH
+
+# Created by `pipx` on 2024-09-10 07:14:58
+export PATH="$PATH:/Users/bhua@dnanexus.com/.local/bin"
+
+# Add following into ~/.bashrc or ~/.zshrc as dev
+export PFDA_ROLE=dev
+
+# fisma-high go env
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@16/lib/pkgconfig"
+
+alias go="go1.21.13"
+alias aws="/usr/local/bin/aws"
+
