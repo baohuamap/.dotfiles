@@ -22,6 +22,11 @@ source ~/.zsh_alias
 source ~/.zprofile
 source ~/.env
 
+if [ -f ~/dx_conf ]; then
+    source ~/dx_conf
+fi
+
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -128,22 +133,10 @@ export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
 export PATH=~/.local/bin:$PATH
 
-# Created by `pipx` on 2024-09-10 07:14:58
-export PATH="$PATH:/Users/bhua@dnanexus.com/.local/bin"
-
-# Add following into ~/.bashrc or ~/.zshrc as dev
-export PFDA_ROLE=dev
-
-# fisma-high go env
-export PATH="$PATH:$(go env GOPATH)/bin"
-
-
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@16/lib/pkgconfig"
 
-alias go="go1.21.13"
-alias aws="/usr/local/bin/aws"
 
