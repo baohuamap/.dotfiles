@@ -9,3 +9,7 @@
 [submodule "alacritty/.config/alacritty/alacritty-theme"]
 	path = alacritty/.config/alacritty/alacritty-theme
 	url = https://github.com/alacritty/alacritty-theme.git
+
+[submodule "dx_conf"]
+    path = dx_conf
+	url = git@github.com:baohuamap/dx-conf.git
