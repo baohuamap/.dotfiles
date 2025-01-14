@@ -1,3 +1,10 @@
 [user]
 	name = bhmap
 	email = 68145237+baohuamap@users.noreply.github.com
+	signingkey = 474093C04620F70A
+[init]
+	defaultBranch = master
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
