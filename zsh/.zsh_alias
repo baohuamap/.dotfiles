@@ -24,6 +24,7 @@ alias gpl="git pull"
 alias gps="git push"
 
 alias ide="~/.scripts/ide"
+alias pwned="~/.scripts/pwned"
 
 function setenv { export $(grep -v '^#' .env | xargs -0); }
 function unsetenv { unset $(grep -v '^#' .env | sed -E 's/(.*)=.*/\1/' | xargs); }

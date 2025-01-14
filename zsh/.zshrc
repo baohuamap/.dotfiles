@@ -140,7 +140,4 @@ export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@16/lib/pkgconfig"
 
 
-if [ -r ~/.zshrc ]; then echo -e '\nexport GPG_TTY=$(tty)' >> ~/.zshrc; \
-  else echo -e '\nexport GPG_TTY=$(tty)' >> ~/.zprofile; fi
-
 export GPG_TTY=$(tty)
