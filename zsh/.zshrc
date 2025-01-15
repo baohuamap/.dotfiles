@@ -22,17 +22,13 @@ source ~/.zsh_alias
 source ~/.zprofile
 source ~/.env
 
-if [ -f ~/dx_conf ]; then
-    source ~/dx_conf
-fi
-
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # history setup
 HISTFILE=$HOME/.zhistory
-SAVEHIST=2000
+SAVEHIST=2001
 HISTSIZE=1999
 setopt share_history
 setopt hist_expire_dups_first
@@ -135,9 +131,20 @@ export PATH=~/.local/bin:$PATH
 
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
+# fisma-high go env
+export PATH="$PATH:$HOME/go/bin"
+
+# Created by `pipx` on 2024-09-10 07:14:58
+export PATH="$PATH:/Users/bhua@dnanexus.com/.local/bin"
+
+
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@16/lib/pkgconfig"
+
+if [ -f ~/dx_conf ]; then
+    source ~/dx_conf
+fi
 
 
 export GPG_TTY=$(tty)

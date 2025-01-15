@@ -18,7 +18,7 @@ alias base="if [ -e ~/Python_env/base/.venv/bin/activate ]; then source ~/Python
 
 alias reload-zsh="source ~/.zshrc"
 alias edit-zsh="nvim ~/.zshrc"
-alias edit-zsh-dx="vim ~/dx_conf"
+alias edit-zsh-dx="nvim ~/dx_conf"
 
 alias gpl="git pull"
 alias gps="git push"
