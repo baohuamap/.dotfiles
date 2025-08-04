@@ -58,14 +58,14 @@ config.window_background_gradient = {
 
 config.color_scheme = "Catppuccin Macchiato (Gogh)"
 
-config.font = wezterm.font("MesloLGS Nerd Font Mono")
+config.font = wezterm.font("JetBrains Mono")
 config.font_size = 19
 
 config.enable_tab_bar = false
 
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 50
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 20
 
 -- and finally, return the configuration to wezterm
 return config
