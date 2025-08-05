@@ -16,16 +16,21 @@ config.window_background_gradient = {
 	-- Specifies the set of colors that are interpolated in the gradient.
 	-- Accepts CSS style color specs, from named colors, through rgb
 	-- strings and more
+	--	colors = {
+	--		"#0f0c29",
+	--		"#302b63",
+	--		"#24243e",
+	--	},
 	colors = {
-		"#0f0c29",
-		"#302b63",
-		"#24243e",
+		"#12101c", -- slightly dulled version of #0f0c29
+		"#2a2750", -- dulled version of #302b63
+		"#1f1f33", -- muted version of #24243e
 	},
 
 	-- Instead of specifying `colors`, you can use one of a number of
 	-- predefined, preset gradients.
 	-- A list of presets is shown in a section below.
-	-- preset = "Warm",
+	-- preset = "BuPu",
 
 	-- Specifies the interpolation style to be used.
 	-- "Linear", "Basis" and "CatmullRom" as supported.
@@ -58,7 +63,11 @@ config.window_background_gradient = {
 
 config.color_scheme = "Catppuccin Macchiato (Gogh)"
 
-config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font({
+	family = "JetBrains Mono",
+	weight = "Bold",
+	stretch = "Expanded",
+})
 config.font_size = 19
 
 config.enable_tab_bar = false
@@ -66,6 +75,35 @@ config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
+config.enable_scroll_bar = true
+config.enable_wayland = false
+
+-- Padding
+config.window_padding = { left = 10, right = 10, top = 10, bottom = 10 }
+
+-- Tab bar
+config.hide_tab_bar_if_only_one_tab = true
+config.use_fancy_tab_bar = true
+config.colors = {
+	tab_bar = {
+		background = "#282828",
+		active_tab = {
+			bg_color = "#458588",
+			fg_color = "#ffffff",
+			intensity = "Bold",
+		},
+		inactive_tab = {
+			bg_color = "#3c3836",
+			fg_color = "#a89984",
+		},
+	},
+}
+
+-- Inactive pane visibility
+config.inactive_pane_hsb = {
+	saturation = 0.9,
+	brightness = 0.6,
+}
 
 -- and finally, return the configuration to wezterm
 return config
