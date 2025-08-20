@@ -1,8 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
-local act = wezterm.action
-
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
@@ -51,10 +49,10 @@ config.colors = {
 -- color scheme toggling
 wezterm.on("toggle-colorscheme", function(window, _)
 	local overrides = window:get_config_overrides() or {}
-	if overrides.color_scheme == "Cloud (terminal.sexy)" then
+	if overrides.color_scheme == "Catppuccin Mocha (Gogh)" then
 		overrides.color_scheme = "Catppuccin Macchiato (Gogh)"
 	else
-		overrides.color_scheme = "Cloud (terminal.sexy)"
+		overrides.color_scheme = "Catppuccin Mocha (Gogh)"
 	end
 	window:set_config_overrides(overrides)
 end)
