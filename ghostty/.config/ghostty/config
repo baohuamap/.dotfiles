@@ -1,9 +1,9 @@
 font-size = 14
 font-family = JetBrains Mono
-background-opacity = 0.9
+background-opacity = 0.8
 background-blur-radius = 20
 macos-non-native-fullscreen = visible-menu
 macos-option-as-alt = left
 mouse-hide-while-typing = true
-theme = catppuccin-macchiato
+theme = Catppuccin Mocha
 

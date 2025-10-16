@@ -1,4 +1,5 @@
 export LANG=en_US.UTF-8
+export XDG_CONFIG_HOME=$HOME/.config
 
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -27,12 +28,14 @@ source ~/.env
 
 # history setup
 HISTFILE=$HOME/.zhistory
-SAVEHIST=2001
+SAVEHIST=100000
 HISTSIZE=1999
 setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
+setopt hist_ignore_space
+setopt hist_find_no_dups
 
 # completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
@@ -42,8 +45,12 @@ bindkey "^[[1;3D" backward-word
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# ---- eza -----
+
+export EZA_CONFIG_DIR=$XDG_CONFIG_HOME/eza/
 
 # ---- FZF -----
 
@@ -59,8 +66,13 @@ blue="#06BCE4"
 cyan="#2CF9ED"
 
 #export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
-
-export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+# export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
+--color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
+--color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+--color=selected-bg:#45475A \
+--color=border:#6C7086,label:#CDD6F4"
 # -- Use fd instead of fzf --
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
@@ -132,20 +144,12 @@ export PATH=~/.local/bin:$PATH
 
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
-# fisma-high go env
+# go env
 export PATH="$PATH:$HOME/go/bin"
-
-# Created by `pipx` on 2024-09-10 07:14:58
-export PATH="$PATH:/Users/bhua@dnanexus.com/.local/bin"
-
 
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@16/lib/pkgconfig"
-
-if [ -f ~/dx_conf ]; then
-    source ~/dx_conf
-fi
 
 
 export GPG_TTY=$(tty)
