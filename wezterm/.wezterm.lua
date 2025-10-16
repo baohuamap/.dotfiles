@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "Catppuccin Macchiato (Gogh)"
 config.font = wezterm.font({
-	family = "JetBrains Mono",
+	family = "Maple Mono",
 	weight = "Bold",
 	stretch = "Expanded",
 })
