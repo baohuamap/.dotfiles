@@ -1,5 +1,4 @@
 # alias for zsh
-#
 
 alias cls=clear
 alias vim=nvim
@@ -30,3 +29,4 @@ alias tf="terraform"
 
 alias c="pbcopy"
 
+alias ffetch="fastfetch"

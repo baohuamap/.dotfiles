@@ -4,7 +4,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -16,12 +15,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(git )
 
-source ~/plugins/git/git.plugin.zsh
+[[ -f ~/plugins/git/git.plugin.zsh ]] && source ~/plugins/git/git.plugin.zsh
 
-source ~/.zsh_alias
-source ~/.zprofile
-source ~/.env
-
+[[ -f ~/.zsh_alias ]] && source ~/.zsh_alias
+[[ -f ~/.zprofile ]] && source ~/.zprofile
+[[ -f ~/.env ]] && source ~/.env
+[[ -f ~/.zshenv ]] && source ~/.zshenv
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -48,9 +47,13 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# ---- wezterm -----
+
+export WEZTERM_CONFIG_DIR="$XDG_CONFIG_HOME/wezterm"
+
 # ---- eza -----
 
-export EZA_CONFIG_DIR=$XDG_CONFIG_HOME/eza/
+export EZA_CONFIG_DIR="$XDG_CONFIG_HOME/eza/"
 
 # ---- FZF -----
 
@@ -65,14 +68,13 @@ purple="#B388FF"
 blue="#06BCE4"
 cyan="#2CF9ED"
 
-#export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
-# export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
 --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
 --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
 --color=selected-bg:#45475A \
 --color=border:#6C7086,label:#CDD6F4"
+
 # -- Use fd instead of fzf --
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
@@ -131,25 +133,4 @@ eval "$(pyenv virtualenv-init -)"
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-# TOKEN=$(aws ecr get-authorization-token --output text --query 'authorizationData[].authorizationToken')
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
-
-export PATH=~/.local/bin:$PATH
-
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
-
-# go env
-export PATH="$PATH:$HOME/go/bin"
-
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@16/lib/pkgconfig"
-
-
-export GPG_TTY=$(tty)
+fastfetch
