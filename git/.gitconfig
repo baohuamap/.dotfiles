@@ -1,0 +1,10 @@
+[user]
+	name = baohuamap
+	email = baohua3110@gmail.com
+	signingkey = 474093C04620F70A
+[init]
+	defaultBranch = master
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
