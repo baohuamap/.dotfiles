@@ -1,18 +1,5 @@
 #!/bin/bash
 
-# Set the directory containing your dotfiles
-dotfile_dir="$HOME/.dotfiles"
-
-# Loop through all directories within the dotfiles directory
-for dir in "$dotfile_dir"/*; do
-    echo "stow $dir"
-    # Check if the directory is actually a directory
-    if [ -d "$dir" ]; then
-        # Stow the current directory
-        stow -D "$dir" && stow -S "$dir"
-    fi
-done
-
-# pushd ./dnanexus
-# ./stow
-# popd
+echo "Running dotfiles installation via Makefile..."
+make install
+echo "Installation complete."
