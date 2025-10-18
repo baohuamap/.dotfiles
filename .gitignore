@@ -1,5 +1,15 @@
 *.bk
 */__pycache__/*
+.DS_Store
+.bashenv
+.zshenv
+*.env
+*.env.*
+.env
+.env.*
+*secret*
+*credential*
+
 
 # tmux
 **/tmux/plugins
