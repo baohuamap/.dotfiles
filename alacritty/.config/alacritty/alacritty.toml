@@ -15,7 +15,6 @@ option_as_alt = "Both"
 
 [font]
 normal.family = "MesloLGSDZ Nerd Font"
-
 size = 16
 
 [general]
