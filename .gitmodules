@@ -6,7 +6,3 @@
 	path = fzf-git.sh/.config/fzf-git.sh
 	url = https://github.com/junegunn/fzf-git.sh.git
 
-[submodule "alacritty/.config/alacritty/alacritty-theme"]
-	path = alacritty/.config/alacritty/alacritty-theme
-	url = https://github.com/alacritty/alacritty-theme.git
-
