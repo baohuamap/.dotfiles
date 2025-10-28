@@ -196,6 +196,11 @@ automatically-unhide-macos-hidden-apps = true
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
 
+    alt-t = 'exec-and-forget open -a /Applications/Telegram.app'
+    alt-o = 'exec-and-forget open -a /Applications/Obsidian.app'
+    alt-b = 'exec-and-forget open -a /Applications/Zen.app'
+    alt-w = 'exec-and-forget open -a /Applications/WezTerm.app'
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
