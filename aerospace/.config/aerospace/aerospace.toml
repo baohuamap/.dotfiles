@@ -4,13 +4,13 @@
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-    'exec-and-forget sketchybar',
+    # 'exec-and-forget sketchybar',
     'exec-and-forget borders'
 ]
 
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = ['/bin/bash', '-c',
-  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+  # 'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
   'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=0'
 ]
 
@@ -59,7 +59,7 @@ automatically-unhide-macos-hidden-apps = true
 # run = ['layout floating', 'move-node-to-workspace S']  # The callback itself
 
 [[on-window-detected]]
-    if.app-id = 'com.tdesktop.Telegram'
+    if.app-name-regex-substring = 'telegram'
     run = 'layout floating'
 
 [[on-window-detected]]
@@ -108,8 +108,9 @@ automatically-unhide-macos-hidden-apps = true
     inner.vertical =   16
     outer.left =       16
     outer.bottom =     16
-    outer.top = [{ monitor."built-in" = 16 }, { monitor."^Dell" = 50 }, 16]
+    outer.top =        16
     outer.right =      16
+    # outer.top = [{ monitor."built-in" = 16 }, { monitor."^Dell" = 50 }, 16]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -214,5 +215,5 @@ automatically-unhide-macos-hidden-apps = true
 2 = 'main' # IDE
 3 = 'main'
 4 = 'main'
-5 = '^Built-in.*$'
+5 = 'main'
 6 = '^Built-in.*$'
