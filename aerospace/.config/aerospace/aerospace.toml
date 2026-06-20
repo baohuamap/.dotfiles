@@ -63,6 +63,10 @@ automatically-unhide-macos-hidden-apps = true
     run = 'layout floating'
 
 [[on-window-detected]]
+    if.app-name-regex-substring = 'zalo'
+    run = 'layout floating'
+
+[[on-window-detected]]
     if.app-id = 'com.apple.finder'
     run = 'layout floating'
 

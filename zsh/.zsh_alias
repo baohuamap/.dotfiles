@@ -1,5 +1,9 @@
 # alias for zsh
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
 alias cls=clear
 alias vim=nvim
 

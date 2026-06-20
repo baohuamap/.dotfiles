@@ -133,4 +133,36 @@ eval "$(pyenv virtualenv-init -)"
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
 
-fastfetch
+# Usage: vault_file my_data.tar.gz
+vault_file() {
+    local input_file=$1
+    local pub_key="$HOME/.ssh/bhua.pub" # Path to your RSA public key
+
+[[ ! -f "$input_file" ]] && { echo "Error: File not found."; return 1; }
+
+    local tmp_key=$(openssl rand -base64 32)
+
+    # Use PBKDF2 and 100k iterations
+    openssl enc -aes-256-cbc -salt -pbkdf2 -iter 100000 -in "$input_file" -out "${input_file}.enc" -pass pass:"$tmp_key"
+
+    echo -n "$tmp_key" | openssl pkeyutl -encrypt -pubin -inkey "$pub_key" -out "${input_file}.key.enc"
+
+    sudo chown root:wheel "${input_file}.enc" "${input_file}.key.enc"
+    sudo chmod 600 "${input_file}.enc" "${input_file}.key.enc"
+    echo "Vaulted with PBKDF2 protection."
+    rm $input_file
+}
+
+# Usage: unvault_file secret.zip.enc secret.key.enc
+unvault_file() {
+    local encrypted_file=$1
+    local encrypted_key=$2
+    local private_key="$HOME/.ssh/bhua.pem"
+    local decrypted_key=$(sudo openssl pkeyutl -decrypt -inkey "$private_key" -in "$encrypted_key")
+
+    # Match the PBKDF2 and iteration count exactly
+    sudo openssl enc -d -aes-256-cbc -salt -pbkdf2 -iter 100000 -in "$encrypted_file" -out "${encrypted_file%.enc}.dec" -pass pass:"$decrypted_key"
+}
+
+# opencode
+export PATH=/Users/baohua/.opencode/bin:$PATH
