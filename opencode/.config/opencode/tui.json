@@ -1,8 +1,4 @@
 {
   "$schema": "https://opencode.ai/tui.json",
-  "theme": "catppuccin-macchiato",
-  "keybinds": {
-    "input_submit": "return",
-    "input_newline": "shift+return,ctrl+return,alt+return,ctrl+j"
-  }
+  "theme": "catppuccin-macchiato"
 }

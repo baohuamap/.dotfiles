@@ -4,6 +4,9 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+-- Ensure modified keys (e.g. Shift+Enter) send distinguishable sequences
+config.enable_kitty_keyboard = true
+
 config.color_scheme = "Catppuccin Macchiato (Gogh)"
 config.font = wezterm.font({
 	family = "Maple Mono",
