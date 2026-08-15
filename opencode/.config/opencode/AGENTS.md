@@ -19,4 +19,9 @@ Preferences for every project on this machine.
 ## Git
 
 - Primary branch is `main`. Commits are GPG-signed by default.
-- When works, please create a feature branch or worktree, follow change -> add -> commit -> push -> create PR in github and ask me for review.
+- Flow: feature branch -> change -> add -> commit -> push -> PR -> ask for review.
+
+## MCP
+
+- **Context7** — fetch current library/framework/SDK docs before answering about API syntax, config, version migration, setup, or CLI usage. Start with `resolve-library-id`, then `query-docs` scoped to one concept per call. Skip for refactoring, business logic, or general concepts.
+- **Grep.app** — search code across all public GitHub repos for usage patterns or examples outside the current repo.
