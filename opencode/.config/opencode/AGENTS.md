@@ -25,3 +25,4 @@ Preferences for every project on this machine.
 
 - **Context7** — fetch current library/framework/SDK docs before answering about API syntax, config, version migration, setup, or CLI usage. Start with `resolve-library-id`, then `query-docs` scoped to one concept per call. Skip for refactoring, business logic, or general concepts.
 - **Grep.app** — search code across all public GitHub repos for usage patterns or examples outside the current repo.
+- **GitHub** — prefer github MCP tools over `gh` CLI for issues, PRs, reviews, branches, commits, and search. Use `list_*` for broad pagination; `search_*` for targeted queries. For line-specific PR review: `pull_request_review_write` create pending -> add comments -> submit pending.
